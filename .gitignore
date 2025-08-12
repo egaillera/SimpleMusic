@@ -1,0 +1,21 @@
+# Xcode
+#
+# gitignore contributors: remember to keep this file simple and straightforward
+# See https://github.com/github/gitignore/blob/main/Global/Xcode.gitignore
+# and https://github.com/github/gitignore/blob/main/Swift.gitignore
+# for a more comprehensive list of files to ignore.
+
+## User-specific
+.DS_Store
+/build/
+DerivedData/
+.swiftpm/
+
+## Other
+*.xcodeproj
+project.xcworkspace
+xcuserdata/
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
