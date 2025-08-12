@@ -21,7 +21,7 @@ struct AlbumView: View {
 
     var body: some View {
         VStack {
-            Text("Albums for \(artist.name)")
+            Text(String(format: NSLocalizedString("Albums for %@", comment: ""), artist.name))
                 .font(.largeTitle)
                 .padding()
             List(albums) { album in

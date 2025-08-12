@@ -21,7 +21,7 @@ struct SongListView: View {
 
     var body: some View {
         VStack {
-            Text("Songs in \(album.title)")
+            Text(String(format: NSLocalizedString("Songs in %@", comment: ""), album.title))
                 .font(.largeTitle)
                 .padding()
             List(songs) { song in

@@ -47,9 +47,9 @@ struct ContentView: View {
                         }
                         .padding()
                     }
-                    .navigationTitle("Artists")
+                    .navigationTitle(LocalizedStringKey("Artists"))
                 } else {
-                    Text("Please grant access to your media library in Settings to view artists.")
+                    Text(LocalizedStringKey("Please grant access to your media library in Settings to view artists."))
                         .multilineTextAlignment(.center)
                         .padding()
                     Button(LocalizedStringKey("Request Access")) {

@@ -1,3 +1,5 @@
 "Artists" = "Artistas";
-"Please grant access to your media library in Ajustes to view artists." = "Por favor, concede acceso a tu biblioteca de medios en Ajustes para ver los artistas.";
+"Please grant access to your media library in Settings to view artists." = "Por favor, concede acceso a tu biblioteca multimedia en Ajustes para ver los artistas.";
 "Request Access" = "Solicitar Acceso";
+"Albums for %@" = "Álbumes de %@";
+"Songs in %@" = "Canciones en %@";
