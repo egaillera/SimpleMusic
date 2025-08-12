@@ -25,19 +25,21 @@ struct AlbumView: View {
                 .font(.largeTitle)
                 .padding()
             List(albums) { album in
-                HStack {
-                    if let image = album.artwork?.image(at: CGSize(width: 50, height: 50)) {
-                        Image(uiImage: image)
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .cornerRadius(8)
-                    } else {
-                        Image(systemName: "music.note")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .cornerRadius(8)
+                NavigationLink(destination: SongListView(album: album)) {
+                    HStack {
+                        if let image = album.artwork?.image(at: CGSize(width: 50, height: 50)) {
+                            Image(uiImage: image)
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .cornerRadius(8)
+                        } else {
+                            Image(systemName: "music.note")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .cornerRadius(8)
+                        }
+                        Text(album.title)
                     }
-                    Text(album.title)
                 }
             }
         }
