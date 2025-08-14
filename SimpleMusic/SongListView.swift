@@ -1,4 +1,3 @@
-
 //
 //  SongListView.swift
 //  SimpleMusic
@@ -8,12 +7,6 @@
 
 import SwiftUI
 import MediaPlayer
-
-struct Song: Identifiable {
-    let id: MPMediaEntityPersistentID
-    let title: String
-    let duration: TimeInterval
-}
 
 struct SongListView: View {
     let album: Album
@@ -25,15 +18,13 @@ struct SongListView: View {
                 .font(.largeTitle)
                 .padding()
             List(songs) { song in
-                HStack {
-                    Button(action: {
-                        // Play song action to be implemented
-                    }) {
+                NavigationLink(destination: PlayerView(song: song)) {
+                    HStack {
                         Image(systemName: "play.fill")
+                        Text(song.title)
+                        Spacer()
+                        Text(formatDuration(song.duration))
                     }
-                    Text(song.title)
-                    Spacer()
-                    Text(formatDuration(song.duration))
                 }
             }
         }
@@ -64,6 +55,18 @@ struct SongListView: View {
 
 struct SongListView_Previews: PreviewProvider {
     static var previews: some View {
-        SongListView(album: Album(title: "Preview Album", artwork: nil))
+        let fakeSongs = [
+            Song(id: 1, title: "Song 1", duration: 180),
+            Song(id: 2, title: "Song 2", duration: 240),
+            Song(id: 3, title: "Song 3", duration: 200)
+        ]
+        SongListView(album: Album(title: "Preview Album", artwork: nil), songs: fakeSongs)
+    }
+}
+
+extension SongListView {
+    init(album: Album, songs: [Song]) {
+        self.album = album
+        self._songs = State(initialValue: songs)
     }
 }

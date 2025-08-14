@@ -9,11 +9,7 @@
 import SwiftUI
 import MediaPlayer
 
-struct Album: Identifiable {
-    let id = UUID()
-    let title: String
-    let artwork: MPMediaItemArtwork?
-}
+
 
 struct AlbumView: View {
     let artist: Artist
@@ -64,6 +60,18 @@ struct AlbumView: View {
 
 struct AlbumView_Previews: PreviewProvider {
     static var previews: some View {
-        AlbumView(artist: Artist(name: "Preview Artist", imageName: "person.fill"))
+        let fakeAlbums = [
+            Album(title: "Album 1", artwork: nil),
+            Album(title: "Album 2", artwork: nil),
+            Album(title: "Album 3", artwork: nil)
+        ]
+        AlbumView(artist: Artist(name: "Preview Artist", imageName: "person.fill"), albums: fakeAlbums)
+    }
+}
+
+extension AlbumView {
+    init(artist: Artist, albums: [Album]) {
+        self.artist = artist
+        self._albums = State(initialValue: albums)
     }
 }
